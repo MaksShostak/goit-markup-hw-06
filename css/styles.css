@@ -484,7 +484,7 @@ header {
       rgba(47, 48, 58, 0.4),
       rgba(47, 48, 58, 0.4)
     ),
-    url(../images/hero-img.jpg);
+    url("../images/hero-img.jpg");
   margin-left: auto;
   margin-right: auto;
 
@@ -763,6 +763,7 @@ header {
 }
 .work-description {
   position: absolute;
+
   bottom: 100;
   left: 0;
   width: 100%;
@@ -802,14 +803,21 @@ header {
 
 .modal {
   position: absolute;
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
 
+  display: flex;
+  justify-content: flex-end;
   width: 528px;
   height: 581px;
   padding: 8px;
-  background-color: #ffffff;
+  background-color: var(--primary-white-color);
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 
   transition-property: transform;
   transition-duration: 1000ms;
@@ -817,20 +825,20 @@ header {
 }
 
 .close {
-  display: block;
+  display: flex;
 
   width: 30px;
   height: 30px;
-  padding: 6px;
-  margin-left: auto;
-
-  color: #000000;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
 
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  text-align: center;
+  background-color: var(--primary-white-color);
   cursor: pointer;
 }
+
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
