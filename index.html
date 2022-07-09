@@ -64,13 +64,77 @@
             Заказать услугу
           </button>
           <div class="backdrop is-hidden" data-modal>
-            <div class="modal">
-              <button class="close" data-modal-close>
+            <form class="contact-form modal">
+              <button type="button" class="close-button" data-modal-close>
                 <svg class="close-icon" width="18px" height="18px">
                   <use href="./images/symbol-defs.svg#icon-close-black"></use>
                 </svg>
               </button>
-            </div>
+              <h2 class="contact-title">
+                Оставьте свои данные, мы вам перезвоним
+              </h2>
+              <div class="contact-name">
+                <label class="name-label" for="name">Имя</label>
+                <input
+                  class="form field"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder=""
+                />
+              </div>
+              <div class="contact-tel">
+                <label class="name-label" for="tel">Телефон</label>
+                <input
+                  class="form field"
+                  type="tel"
+                  name="tel"
+                  id="tel"
+                  placeholder=""
+                />
+              </div>
+              <div class="contact-email">
+                <label class="name-label" for="modal-email">Почта</label>
+                <input
+                  class="form field"
+                  type="email"
+                  name="email2"
+                  id="modal-email"
+                  placeholder=""
+                />
+              </div>
+              <div class="contact-coment">
+                <label class="name-label" for="coment">Комментарий</label>
+                <textarea
+                  class="coment-form field"
+                  name="coment"
+                  id="coment"
+                  placeholder="Введите текст"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <div class="contact-agreement">
+                <input
+                  class="checkbox-input"
+                  type="checkbox"
+                  name="mailing"
+                  value="agreement"
+                  id="agreement"
+                />
+                <label for="agreement"
+                  >Соглашаюсь с рассылкой и принимаю
+                  <a
+                    class="agreement link"
+                    href=""
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Условия договора
+                  </a>
+                </label>
+              </div>
+              <button class="contact button" type="submit">Отправить</button>
+            </form>
           </div>
         </div>
       </section>
@@ -539,6 +603,23 @@
             </li>
           </ul>
         </div>
+
+        <form class="subscribe-form" name="subscribe-form">
+          <div class="subscription-wrap">
+            <label class="subscription-title" for="email"
+              >Подпишитесь на рассылку</label
+            >
+            <input
+              class="subscription-input"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="E-mail"
+            />
+          </div>
+
+          <button class="subscription button" type="submit">Подписаться</button>
+        </form>
       </div>
     </footer>
     <script src="./js/modal.js"></script>
