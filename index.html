@@ -82,6 +82,9 @@
                   id="name"
                   placeholder=""
                 />
+                <svg class="person-icon changed" width="18px" height="18px">
+                  <use href="./images/symbol-defs.svg#icon-person-black"></use>
+                </svg>
               </div>
               <div class="contact-tel">
                 <label class="name-label" for="tel">Телефон</label>
@@ -92,6 +95,9 @@
                   id="tel"
                   placeholder=""
                 />
+                <svg class="tel-icon changed" width="18px" height="18px">
+                  <use href="./images/symbol-defs.svg#icon-phone-black"></use>
+                </svg>
               </div>
               <div class="contact-email">
                 <label class="name-label" for="modal-email">Почта</label>
@@ -102,6 +108,9 @@
                   id="modal-email"
                   placeholder=""
                 />
+                <svg class="email-icon changed" width="18px" height="18px">
+                  <use href="./images/symbol-defs.svg#icon-email-black"></use>
+                </svg>
               </div>
               <div class="contact-coment">
                 <label class="name-label" for="coment">Комментарий</label>
@@ -115,21 +124,33 @@
                 ></textarea>
               </div>
               <div class="contact-agreement">
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  name="mailing"
-                  value="agreement"
-                  id="agreement"
-                />
-                <label for="agreement"
-                  >Соглашаюсь с рассылкой и принимаю
+                <label for="agreement" class="agreement-label">
+                  <input
+                    class="checkbox-input"
+                    type="checkbox"
+                    name="mailing"
+                    value="agreement"
+                    id="agreement"
+                  />
+                  <span class="wrapper-checkbox-icon">
+                    <svg
+                      class="checkbox-icon changed"
+                      width="11px"
+                      height="8px"
+                    >
+                      <use
+                        href="./images/symbol-defs.svg#icon-vectorcheck"
+                      ></use>
+                    </svg>
+                  </span>
+                  <span>Соглашаюсь с рассылкой и принимаю</span>
                   <a
                     class="agreement link"
                     href=""
                     target="_blank"
                     rel="noopener noreferrer"
-                    >Условия договора
+                  >
+                    Условия договора
                   </a>
                 </label>
               </div>
@@ -609,6 +630,7 @@
             <label class="subscription-title" for="email"
               >Подпишитесь на рассылку</label
             >
+
             <input
               class="subscription-input"
               type="email"
@@ -617,8 +639,14 @@
               placeholder="E-mail"
             />
           </div>
-
-          <button class="subscription button" type="submit">Подписаться</button>
+          <div class="subscription-btn">
+            <button class="subscription button" type="submit">
+              Подписаться
+            </button>
+            <svg class="subscription-icon" width="24px" height="24px">
+              <use href="./images/symbol-defs.svg#icon-icon-send"></use>
+            </svg>
+          </div>
         </form>
       </div>
     </footer>

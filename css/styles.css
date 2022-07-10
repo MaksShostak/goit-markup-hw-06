@@ -718,8 +718,7 @@ header {
   fill: currentColor;
 }
 
-.join-title,
-.subscription-title {
+.join-title {
   margin-bottom: 20px;
   margin-top: 0;
   text-transform: uppercase;
@@ -790,6 +789,7 @@ header {
 
 /* Beckdrop */
 .backdrop {
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -797,7 +797,7 @@ header {
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition: opacity;
+  transition-property: opacity;
   transition-duration: 1000ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -838,6 +838,17 @@ header {
   border-radius: 50%;
   background-color: var(--primary-white-color);
   cursor: pointer;
+  fill: currentColor;
+}
+.close-icon {
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-button:hover .close-icon,
+.close-button:focus .close-icon,
+.close-button:active .close-icon {
+  color: var(--accent-color);
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -863,10 +874,12 @@ header {
 .contact-name,
 .contact-tel,
 .contact-email {
+  position: relative;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  color: #212121;
 }
 
 .contact-coment {
@@ -887,16 +900,46 @@ header {
 .field {
   min-width: 448px;
   height: 40px;
-  padding: 11px 12px;
+  padding: 11px 42px;
 
   background-color: var(--primary-white-color);
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.person-icon,
+.tel-icon,
+.email-icon {
+  position: absolute;
+  bottom: 11px;
+  left: 12px;
+  fill: currentColor;
+}
+
+.changed {
+  fill: currentColor;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.field:active,
+.field:focus,
+.field:hover {
+  border-color: var(--accent-color);
+}
+
+.field:hover + .changed,
+.field:focus + .changed,
+.field:active + .changed {
+  color: var(--accent-color);
 }
 
 .coment-form.field {
   width: 448px;
   min-height: 120px;
+  padding: 12px 16px;
   resize: none;
 }
 .field::placeholder {
@@ -906,18 +949,79 @@ header {
   letter-spacing: 0.01em;
 
   color: rgba(117, 117, 117, 0.5);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.field:hover.field::placeholder,
+.field:focus.field::placeholder,
+.field:active.field::placeholder {
+  color: var(--accent-color);
 }
 .contact-agreement {
   margin-bottom: 30px;
 }
+.agreement-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
 .agreement.link {
+  margin-left: 5px;
   color: var(--accent-color);
+}
+.wrapper-checkbox-icon {
+  display: flex;
+  width: 16px;
+  height: 15px;
+  margin-right: 8px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+
+  color: #ffffff;
+  background-color: #ffffff;
+  background-origin: border-box;
+  transition-property: border-color, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .checkbox-input {
   width: 16px;
   height: 15px;
+
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.checkbox-input:checked + .wrapper-checkbox-icon {
+  border-color: transparent;
+  background-color: var(--accent-color);
 }
 
+.contact.button {
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contact.button:hover,
+.contact.button:focus,
+.contact.button:active {
+  color: rgba(255, 255, 255, 0.85);
+}
 .subscribe-form {
   margin-left: 93px;
   display: flex;
@@ -941,6 +1045,15 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
+
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.subscription-input:hover,
+.subscription-input:focus,
+.subscription-input:active {
+  border-color: var(--accent-color);
 }
 .subscription-input::placeholder {
   font-weight: 400;
@@ -948,13 +1061,24 @@ header {
   line-height: 1.25;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.subscription-input:hover.subscription-input::placeholder,
+.subscription-input:focus.subscription-input::placeholder,
+.subscription-input:active.subscription-input::placeholder {
+  color: var(--accent-color);
+}
+
 .button {
   min-width: 200px;
   /* height: 50px; */
 
-  padding: 10px 29px;
-
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 29px;
+  padding-right: 28px;
   cursor: pointer;
   border-radius: 4px;
   border: none;
@@ -965,10 +1089,53 @@ header {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
-
+  text-align: center;
   color: var(--primary-white-color);
   background-color: var(--accent-color);
   /* border-color: var(--accent-color); */
+  border-radius: 4px;
   border-color: transparent;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+.subscription-title {
+  margin-bottom: 20px;
+  margin-top: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+
+  color: #ffffff;
+}
+.subscription-btn {
+  display: flex;
+  position: relative;
+  color: #ffffff;
+  justify-content: space-between;
+  align-items: center;
+}
+.subscription.button {
+  display: flex;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.subscription-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 13px;
+  right: 28px;
+  fill: currentColor;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.subscription-btn:focus .subscription.button,
+.subscription-btn:active .subscription.button,
+.subscription-btn:hover .subscription.button,
+.subscription-btn:hover .subscription-icon,
+.subscription-btn:focus .subscription-icon,
+.subscription-btn:active .subscription-icon {
+  color: rgba(255, 255, 255, 0.85);
 }
